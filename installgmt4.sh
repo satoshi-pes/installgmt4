@@ -15,14 +15,14 @@ TMPDIR=`mktemp -d gmt-XXX`
 
 # get gmt4 packages
 curl -u anonymous:password ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.18-src.tar.bz2  -o $TMPDIR/gmt-4.5.18-src.tar.bz2
-curl -u anonymous:password ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.18-non-gpl-src.tar.bz2  -o $TMPDIR/gmt-4.5.18-non-gps-src.tar.bz2
+curl -u anonymous:password ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.18-non-gpl-src.tar.bz2  -o $TMPDIR/gmt-4.5.18-non-gpl-src.tar.bz2
 curl -u anonymous:password ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.7.tar.gz  -o $TMPDIR/gshhg-gmt-2.3.7.tar.gz
 
 # extract packages
 tar xvfj $TMPDIR/gmt-4.5.18-src.tar.bz2   -C $TMPDIR
-tar xvfj $TMPDIR/gmt-4.5.18-non-gps-src.tar.bz2   -C $TMPDIR
+tar xvfj $TMPDIR/gmt-4.5.18-non-gpl-src.tar.bz2   -C $TMPDIR
 mkdir -p $GMTPATH/share/gmt
-tar xvfz ./gshhg-gmt-2.3.7.tar.gz  -C $HOME/gmt4/share/gmt
+tar xvfz $TMPDIR/gshhg-gmt-2.3.7.tar.gz  -C $HOME/gmt4/share/gmt
 
 # make 
 cd $TMPDIR/gmt-4.5.18
